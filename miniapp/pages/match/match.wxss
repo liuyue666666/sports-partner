@@ -1,0 +1,12 @@
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.empty {
+  text-align: center;
+  color: #666;
+  padding: 48rpx;
+}

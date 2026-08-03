@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="actions">
+    <button class="btn-primary" size="mini" bindtap="goCreate">发布活动</button>
+    <button size="mini" bindtap="goMy">我的活动</button>
+  </view>
+
+  <view class="card" wx:if="{{loading}}">
+    <text class="text-muted">加载中...</text>
+  </view>
+
+  <view class="card empty" wx:else>
+    <text>活动列表将在 Phase 2 接入</text>
+  </view>
+</view>

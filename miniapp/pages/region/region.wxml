@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="card">
+    <text class="section-title">公共活动区域</text>
+    <text class="text-muted">如梧桐山徒步区、篮球场区域等 — Phase 4 接入</text>
+  </view>
+</view>

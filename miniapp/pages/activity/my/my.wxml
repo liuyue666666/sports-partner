@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab {{tab === 'joined' ? 'active' : ''}}" data-tab="joined" bindtap="switchTab">我报名的</view>
+    <view class="tab {{tab === 'created' ? 'active' : ''}}" data-tab="created" bindtap="switchTab">我发布的</view>
+  </view>
+  <view class="card empty">
+    <text>我的活动 — Phase 2</text>
+  </view>
+</view>

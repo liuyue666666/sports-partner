@@ -1,0 +1,15 @@
+.hero-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.hero {
+  text-align: center;
+  padding: 48rpx 24rpx;
+}
+
+button {
+  margin-top: 24rpx;
+}

@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="hero card">
+    <text class="hero-title">找到你的运动搭子</text>
+    <text class="text-muted">徒步 · 爬山 · 篮球 · 足球 · 羽毛球</text>
+  </view>
+
+  <view class="card" wx:if="{{loading}}">
+    <text class="text-muted">加载中...</text>
+  </view>
+
+  <view class="card" wx:else>
+    <text>附近活动与推荐区域将在 Phase 2/4 接入</text>
+  </view>
+
+  <button class="btn-primary" bindtap="goCreateActivity">发布活动</button>
+  <button bindtap="goRegion" style="margin-top: 16rpx;">公共活动区域</button>
+</view>

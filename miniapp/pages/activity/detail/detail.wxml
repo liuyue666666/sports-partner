@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="card">
+    <text>活动详情页 — Phase 2</text>
+    <text class="text-muted" wx:if="{{activityId}}">ID: {{activityId}}</text>
+  </view>
+</view>

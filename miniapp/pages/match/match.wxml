@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="card">
+    <text class="section-title">附近运动搭子</text>
+    <text class="text-muted">默认搜索半径 5km · 匹配度 = 距离40% + 兴趣40% + 时间20%</text>
+  </view>
+
+  <view class="card" wx:if="{{loading}}">
+    <text class="text-muted">加载中...</text>
+  </view>
+
+  <view class="card empty" wx:elif="{{partners.length === 0}}">
+    <text>暂无附近搭子，完善资料并开启定位后可匹配</text>
+  </view>
+</view>

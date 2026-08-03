@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="card">
+    <text>发布活动表单 — Phase 2</text>
+    <text class="text-muted">支持设置时间、地点、人数、性别要求、报名截止</text>
+  </view>
+</view>
