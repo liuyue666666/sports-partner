@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="card" wx:if="{{loading}}">
+    <text class="text-muted">加载中...</text>
+  </view>
+
+  <block wx:else>
+    <view class="card form-item">
+      <text class="label">昵称</text>
+      <input value="{{nickname}}" bindinput="onNicknameInput" placeholder="请输入昵称" />
+    </view>
+
+    <view class="card form-item">
+      <text class="label">性别</text>
+      <picker mode="selector" range="{{genderOptions}}" value="{{gender}}" bindchange="onGenderChange">
+        <view class="picker-value">{{genderOptions[gender]}}</view>
+      </picker>
+    </view>
+
+    <view class="card form-item">
+      <text class="label">简介</text>
+      <textarea value="{{bio}}" bindinput="onBioInput" placeholder="介绍一下自己" maxlength="256" />
+    </view>
+
+    <view class="card">
+      <text class="label">运动兴趣</text>
+      <view class="tag-list">
+        <view
+          class="tag-item {{selectedTagIds.indexOf(item.id) >= 0 ? 'active' : ''}}"
+          wx:for="{{sportTags}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="toggleTag"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <button class="btn-primary" bindtap="handleSave" loading="{{saving}}">保存</button>
+  </block>
+</view>

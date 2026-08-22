@@ -1,17 +1,35 @@
 <view class="container">
-  <view class="card profile-header">
-    <view class="avatar"></view>
+  <view class="card profile-header" wx:if="{{isLoggedIn && user}}">
+    <image class="avatar" src="{{user.avatar_url || '/static/icons/profile.png'}}" mode="aspectFill" />
     <view class="info">
-      <text class="nickname">{{isLoggedIn ? nickname || '运动达人' : '未登录'}}</text>
-      <text class="text-muted">完善资料，提升匹配度</text>
+      <text class="nickname">{{user.nickname}}</text>
+      <text class="text-muted">{{genderText}} · {{user.bio || '暂无简介'}}</text>
+      <view class="tags" wx:if="{{user.sport_tags.length}}">
+        <text class="tag" wx:for="{{user.sport_tags}}" wx:key="id">{{item.name}}</text>
+      </view>
     </view>
   </view>
 
-  <button wx:if="{{!isLoggedIn}}" class="btn-primary" bindtap="goLogin">微信登录</button>
+  <view class="card profile-header" wx:elif="{{!isLoggedIn}}">
+    <view class="avatar placeholder"></view>
+    <view class="info">
+      <text class="nickname">未登录</text>
+      <text class="text-muted">登录后可发布活动、寻找搭子</text>
+    </view>
+  </view>
 
-  <view class="card menu" wx:else>
-    <view class="menu-item">编辑资料</view>
-    <view class="menu-item">运动兴趣</view>
-    <view class="menu-item">站内消息</view>
+  <view class="card" wx:if="{{loading}}">
+    <text class="text-muted">加载中...</text>
+  </view>
+
+  <button wx:if="{{!isLoggedIn}}" class="btn-primary" bindtap="handleLogin" loading="{{loading}}">微信登录</button>
+
+  <view wx:if="{{isLoggedIn}}">
+    <view class="card menu">
+      <view class="menu-item" bindtap="goSettings">编辑资料</view>
+      <view class="menu-item" bindtap="reportLocation">更新位置</view>
+      <view class="menu-item">站内消息</view>
+    </view>
+    <button bindtap="handleLogout" style="margin-top: 24rpx;">退出登录</button>
   </view>
 </view>

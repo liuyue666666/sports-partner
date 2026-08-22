@@ -1,0 +1,41 @@
+.form-item {
+  margin-bottom: 24rpx;
+}
+
+.label {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+
+input,
+textarea,
+.picker-value {
+  width: 100%;
+  font-size: 30rpx;
+}
+
+textarea {
+  min-height: 120rpx;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 16rpx;
+}
+
+.tag-item {
+  padding: 12rpx 24rpx;
+  border-radius: 24rpx;
+  background: #f0f0f0;
+  color: #666;
+  font-size: 26rpx;
+}
+
+.tag-item.active {
+  background: #e8f8ef;
+  color: #07c160;
+}

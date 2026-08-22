@@ -32,6 +32,15 @@ cp .env.example .env
 docker compose up -d
 ```
 
+或使用 PowerShell 脚本：
+
+```powershell
+.\scripts\dev.ps1 -Target infra    # 仅启动 MySQL + Redis
+.\scripts\dev.ps1 -Target backend  # 启动后端
+.\scripts\dev.ps1 -Target admin    # 启动管理后台
+.\scripts\dev.ps1 -Target test     # 运行测试
+```
+
 ### 2. 启动后端
 
 ```bash
@@ -63,7 +72,7 @@ npm run dev
 ## 开发阶段
 
 - [x] Phase 0 — 项目骨架
-- [ ] Phase 1 — 用户系统
+- [x] Phase 1 — 用户系统
 - [ ] Phase 2 — 活动模块
 - [ ] Phase 3 — 匹配模块
 - [ ] Phase 4 — 公共区域 + 管理后台

@@ -1,6 +1,6 @@
 .profile-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 24rpx;
 }
 
@@ -9,6 +9,11 @@
   height: 120rpx;
   border-radius: 50%;
   background: #e0e0e0;
+  flex-shrink: 0;
+}
+
+.avatar.placeholder {
+  background: #ddd;
 }
 
 .nickname {
@@ -16,6 +21,21 @@
   font-size: 36rpx;
   font-weight: 600;
   margin-bottom: 8rpx;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.tag {
+  background: #e8f8ef;
+  color: #07c160;
+  font-size: 22rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
 }
 
 .menu-item {

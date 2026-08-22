@@ -6,8 +6,7 @@ from sqlalchemy import engine_from_config, pool
 from app.config import settings
 from app.core.database import Base
 
-# Import models here when they are created (Phase 1+)
-# from app.models import user  # noqa: F401
+from app.models import Message, SportTag, User, UserSportTag  # noqa: F401
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.database_url)
