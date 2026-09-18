@@ -27,3 +27,8 @@ class UnauthorizedError(AppException):
 class ForbiddenError(AppException):
     def __init__(self, message: str = "Forbidden", **kwargs) -> None:
         super().__init__(message, code="FORBIDDEN", status_code=403, **kwargs)
+
+
+class ConflictError(AppException):
+    def __init__(self, message: str = "Conflict", **kwargs) -> None:
+        super().__init__(message, code="CONFLICT", status_code=409, **kwargs)

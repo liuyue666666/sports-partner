@@ -8,7 +8,22 @@
     <text class="text-muted">加载中...</text>
   </view>
 
-  <view class="card empty" wx:else>
-    <text>活动列表将在 Phase 2 接入</text>
+  <block wx:for="{{activities}}" wx:key="id">
+    <view class="card activity-card" bindtap="goDetail" data-id="{{item.id}}">
+      <view class="row">
+        <text class="title">{{item.title}}</text>
+        <text class="status">{{item.statusText}}</text>
+      </view>
+      <text class="tag">{{item.sport_tag.name}}</text>
+      <text class="text-muted">{{item.startText}} · {{item.address || '地点待定'}}</text>
+      <view class="row bottom">
+        <text class="text-muted">{{item.slotsText}}</text>
+        <text class="distance" wx:if="{{item.distanceText}}">{{item.distanceText}}</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="card empty" wx:if="{{!loading && activities.length === 0}}">
+    <text>附近暂无活动，来发布第一个吧</text>
   </view>
 </view>

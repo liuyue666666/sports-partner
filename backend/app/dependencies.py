@@ -37,3 +37,15 @@ def get_current_user(
 
 CurrentUser = Annotated[User, Depends(get_current_user)]
 CurrentUserId = Annotated[int, Depends(get_current_user_id)]
+
+
+def get_optional_user_id(authorization: Annotated[str | None, Header()] = None) -> int | None:
+    if not authorization or not authorization.startswith("Bearer "):
+        return None
+    try:
+        return get_current_user_id(authorization)
+    except UnauthorizedError:
+        return None
+
+
+OptionalUserId = Annotated[int | None, Depends(get_optional_user_id)]

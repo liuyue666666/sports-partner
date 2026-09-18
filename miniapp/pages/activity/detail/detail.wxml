@@ -1,6 +1,50 @@
-<view class="container">
+<view class="container" wx:if="{{activity}}">
   <view class="card">
-    <text>活动详情页 — Phase 2</text>
-    <text class="text-muted" wx:if="{{activityId}}">ID: {{activityId}}</text>
+    <view class="row">
+      <text class="title">{{activity.title}}</text>
+      <text class="status">{{activity.statusText}}</text>
+    </view>
+    <text class="tag">{{activity.sport_tag.name}}</text>
+    <text class="desc">{{activity.description || '暂无描述'}}</text>
   </view>
+
+  <view class="card info">
+    <text>时间：{{activity.startText}}</text>
+    <text>截止：{{activity.deadlineText}}</text>
+    <text>地点：{{activity.address || '见坐标'}}</text>
+    <text>人数：{{activity.slotsText}}</text>
+    <text>性别：{{activity.genderText}}</text>
+    <text>发起人：{{activity.creator.nickname}}</text>
+  </view>
+
+  <view class="card">
+    <text class="section-title">参与者 ({{activity.participants.length}})</text>
+    <view class="participant" wx:for="{{activity.participants}}" wx:key="joined_at">
+      <text>{{item.user.nickname}}</text>
+    </view>
+  </view>
+
+  <button
+    wx:if="{{activity.status === 1 && !activity.is_joined}}"
+    class="btn-primary"
+    bindtap="handleJoin"
+    loading="{{acting}}"
+  >报名参加</button>
+
+  <button
+    wx:if="{{activity.is_joined && activity.status <= 2}}"
+    bindtap="handleCancelJoin"
+    loading="{{acting}}"
+  >取消报名</button>
+
+  <button
+    wx:if="{{isCreator && activity.status < 4}}"
+    type="warn"
+    bindtap="handleCancelActivity"
+    loading="{{acting}}"
+  >取消活动</button>
+</view>
+
+<view class="container" wx:if="{{loading}}">
+  <view class="card"><text class="text-muted">加载中...</text></view>
 </view>

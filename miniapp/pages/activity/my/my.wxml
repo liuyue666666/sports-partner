@@ -3,7 +3,19 @@
     <view class="tab {{tab === 'joined' ? 'active' : ''}}" data-tab="joined" bindtap="switchTab">我报名的</view>
     <view class="tab {{tab === 'created' ? 'active' : ''}}" data-tab="created" bindtap="switchTab">我发布的</view>
   </view>
-  <view class="card empty">
-    <text>我的活动 — Phase 2</text>
+
+  <view class="card" wx:if="{{loading}}">
+    <text class="text-muted">加载中...</text>
+  </view>
+
+  <block wx:for="{{activities}}" wx:key="id">
+    <view class="card activity-item" bindtap="goDetail" data-id="{{item.id}}">
+      <text class="title">{{item.title}}</text>
+      <text class="text-muted">{{item.startText}} · {{item.statusText}}</text>
+    </view>
+  </block>
+
+  <view class="card empty" wx:if="{{!loading && activities.length === 0}}">
+    <text>暂无活动</text>
   </view>
 </view>

@@ -1,6 +1,49 @@
 <view class="container">
-  <view class="card">
-    <text>发布活动表单 — Phase 2</text>
-    <text class="text-muted">支持设置时间、地点、人数、性别要求、报名截止</text>
+  <view class="card form-item">
+    <text class="label">活动标题</text>
+    <input placeholder="例如：周末梧桐山徒步" bindinput="onTitleInput" />
   </view>
+
+  <view class="card form-item">
+    <text class="label">运动类型</text>
+    <picker mode="selector" range="{{sportTags}}" range-key="name" bindchange="onSportTagChange">
+      <view>{{sportTags[sportTagIndex].name || '请选择'}}</view>
+    </picker>
+  </view>
+
+  <view class="card form-item">
+    <text class="label">活动描述</text>
+    <textarea placeholder="介绍一下活动安排" bindinput="onDescInput" />
+  </view>
+
+  <view class="card form-item">
+    <text class="label">集合地点</text>
+    <input placeholder="文字地址" bindinput="onAddressInput" />
+  </view>
+
+  <view class="card form-item">
+    <text class="label">人数上限</text>
+    <input type="number" value="{{maxParticipants}}" bindinput="onMaxInput" />
+  </view>
+
+  <view class="card form-item">
+    <text class="label">性别要求</text>
+    <picker mode="selector" range="{{genderOptions}}" bindchange="onGenderChange">
+      <view>{{genderOptions[genderIndex]}}</view>
+    </picker>
+  </view>
+
+  <view class="card form-item">
+    <text class="label">开始时间</text>
+    <picker mode="date" bindchange="onStartDateChange"><view>{{startDate || '选择日期'}}</view></picker>
+    <picker mode="time" bindchange="onStartTimeChange"><view>{{startTime || '选择时间'}}</view></picker>
+  </view>
+
+  <view class="card form-item">
+    <text class="label">报名截止</text>
+    <picker mode="date" bindchange="onDeadlineDateChange"><view>{{deadlineDate || '选择日期'}}</view></picker>
+    <picker mode="time" bindchange="onDeadlineTimeChange"><view>{{deadlineTime || '选择时间'}}</view></picker>
+  </view>
+
+  <button class="btn-primary" bindtap="handleSubmit" loading="{{submitting}}">发布活动</button>
 </view>

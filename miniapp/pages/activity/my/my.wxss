@@ -24,3 +24,10 @@
   padding: 48rpx;
   color: #666;
 }
+
+.activity-item .title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
